@@ -103,7 +103,6 @@ package
 			stage.align = StageAlign.TOP_LEFT;
 			enableErrorChecking = false;
 
-			scenes.push(SideScrollerTest);
 			scenes.push(MassiveSpritesTest);
 			scenes.push(MassiveSpriteCloudTest);
 			scenes.push(SpriteHierarchyTest);
@@ -130,6 +129,7 @@ package
 			scenes.push(QuadMaterialTest);
 			scenes.push(BlurTest);
 			scenes.push(SpriteCloudVisibilityTest);
+			scenes.push(SideScrollerTest);
 
 			var tf:TextFormat = new TextFormat("Arial", 11, 0xFFFFFF, true);
 

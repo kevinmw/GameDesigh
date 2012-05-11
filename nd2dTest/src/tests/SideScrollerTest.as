@@ -52,7 +52,7 @@ package tests {
         [Embed(source="/assets/star_particle.png")]
         protected var particleTexture2:Class;
 
-        [Embed(source="/assets/world_background.png")]
+        [Embed(source="/assets/water_texture.jpg")]
         protected var backgroundTexture:Class;
 
         [Embed(source="/assets/world_background2.png")]
@@ -134,8 +134,9 @@ package tests {
             plasmaPreset.maxStartPosition.y = stage.stageHeight * 0.5;
             plasmaPreset.spawnDelay = 0.0;
 
-            wind = new ParticleSystem2D(Texture2D.textureFromBitmapData(new particleTexture2().bitmapData), 400, plasmaPreset);
+            wind = new ParticleSystem2D(Texture2D.textureFromBitmapData(new particleTexture().bitmapData), 400, plasmaPreset);
             wind.blendMode = BlendModePresets.ADD_PREMULTIPLIED_ALPHA;
+			wind.gravity.y = 1000;
             addChild(wind);
 
             // trees
@@ -229,26 +230,26 @@ package tests {
                 ceilingSprites[i].x = i * ceilingSprites[i].width + ceilingSprites[i].width * 0.5;
             }
 
-            plasmaPreset = new ParticleSystemPreset();
-            plasmaPreset.minStartSize = 1.0;
-            plasmaPreset.maxStartSize = 2.0;
-            plasmaPreset.minEndSize = 0.3;
-            plasmaPreset.maxEndSize = 0.1;
+//            plasmaPreset = new ParticleSystemPreset();
+//            plasmaPreset.minStartSize = 1.0;
+//            plasmaPreset.maxStartSize = 2.0;
+//            plasmaPreset.minEndSize = 0.3;
+//            plasmaPreset.maxEndSize = 0.1;
+//
+//            plasmaPreset.startColor = plasmaPreset.startColorVariance = 0x633888;
+//            plasmaPreset.endColor = plasmaPreset.endColorVariance = 0x1bb099;
+//            plasmaPreset.minStartPosition.x = -25;
+//            plasmaPreset.maxStartPosition.x = 25;
+//            plasmaPreset.minEmitAngle = 170.0;
+//            plasmaPreset.maxEmitAngle = 190.0;
+//            plasmaPreset.spawnDelay = 2.0;
+//
+//            plasma = new ParticleSystem2D(Texture2D.textureFromBitmapData(new particleTexture().bitmapData), 200, plasmaPreset);
+//            plasma.x = 225;
+//            plasma.y = -55;
+//            plasma.blendMode = BlendModePresets.ADD_PREMULTIPLIED_ALPHA;
 
-            plasmaPreset.startColor = plasmaPreset.startColorVariance = 0x633888;
-            plasmaPreset.endColor = plasmaPreset.endColorVariance = 0x1bb099;
-            plasmaPreset.minStartPosition.x = -25;
-            plasmaPreset.maxStartPosition.x = 25;
-            plasmaPreset.minEmitAngle = 170.0;
-            plasmaPreset.maxEmitAngle = 190.0;
-            plasmaPreset.spawnDelay = 2.0;
-
-            plasma = new ParticleSystem2D(Texture2D.textureFromBitmapData(new particleTexture().bitmapData), 200, plasmaPreset);
-            plasma.x = 225;
-            plasma.y = -55;
-            plasma.blendMode = BlendModePresets.ADD_PREMULTIPLIED_ALPHA;
-
-            grassSprites[0].addChild(plasma);
+//            grassSprites[0].addChild(plasma);
         }
 
         override protected function step(elapsed:Number):void {
@@ -287,7 +288,7 @@ package tests {
 
             for(i = 0; i < ceilingSprites.length; i++) {
                 s = ceilingSprites[i];
-                s.x += scrollX;
+                s.x += scrollX*0.5;
                 s.y = s.height * 0.5;
             }
 
