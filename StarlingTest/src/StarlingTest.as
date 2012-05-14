@@ -19,7 +19,7 @@ package
 			stage.align = StageAlign.TOP_LEFT;
 			stage.scaleMode = StageScaleMode.NO_SCALE;
 			
-			mStarling = new Starling(Game, stage, null, null, Context3DRenderMode.SOFTWARE);
+			mStarling = new Starling(Game3, stage);
 //			mStarling = new Starling(Game2, stage);
 			// emulate multi-touch 
 			mStarling.simulateMultitouch = true;

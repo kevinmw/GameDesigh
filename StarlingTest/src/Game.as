@@ -88,6 +88,7 @@ package
 			// get the mouse location related to the stage 
 			var touch:Touch = e.getTouch(stage); 
 			var pos:Point = touch.getLocation(stage); 
+//			trace ( touch.phase );
 			// store the mouse coordinates 
 			mouseX = pos.x; 
 			mouseY = pos.y;
