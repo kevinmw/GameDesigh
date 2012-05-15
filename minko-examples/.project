@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectDescription>
+	<name>minko-examples</name>
+	<comment></comment>
+	<projects>
+	</projects>
+	<buildSpec>
+		<buildCommand>
+			<name>com.adobe.flexbuilder.project.flexbuilder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+	</buildSpec>
+	<natures>
+		<nature>com.adobe.flexbuilder.project.actionscriptnature</nature>
+	</natures>
+	<linkedResources>
+		<link>
+			<name>[source path] minimalcomps-src</name>
+			<type>2</type>
+			<location>D:/osflashGit/ui/minimalcomps/src</location>
+		</link>
+		<link>
+			<name>[source path] minko-src</name>
+			<type>2</type>
+			<location>D:/osflashGit/flash_3d/minko/src</location>
+		</link>
+		<link>
+			<name>[source path] monitor-src</name>
+			<type>2</type>
+			<location>D:/osflashGit/flash_3d/monitor/src</location>
+		</link>
+	</linkedResources>
+</projectDescription>
