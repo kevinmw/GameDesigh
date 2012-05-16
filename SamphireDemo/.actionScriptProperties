@@ -4,6 +4,8 @@
     <compilerSourcePath>
       <compilerSourcePathEntry kind="1" linkType="1" path="D:/osflashGit/frameworks/Samphire/src"/>
       <compilerSourcePathEntry kind="1" linkType="1" path="D:/osflashGit/frameworks/Ember2/src"/>
+      <compilerSourcePathEntry kind="1" linkType="1" path="D:/osflashGit/frameworks/robotlegs-framework/src"/>
+      <compilerSourcePathEntry kind="1" linkType="1" path="D:/osflashGit/frameworks/SwiftSuspenders/src"/>
     </compilerSourcePath>
     <libraryPath defaultLinkType="0">
       <libraryPathEntry kind="4" path="">
@@ -32,8 +34,9 @@
         </excludedEntries>
       </libraryPathEntry>
       <libraryPathEntry kind="1" linkType="1" path="lib"/>
-      <libraryPathEntry kind="3" linkType="1" path="D:/osflashGit/frameworks/Samphire/bin/Samphire.swc" useDefaultLinkType="false"/>
-      <libraryPathEntry kind="3" linkType="1" path="D:/osflashGit/frameworks/Ember2/bin/Ember2.swc" useDefaultLinkType="false"/>
+      <libraryPathEntry kind="1" linkType="1" path="D:/osflashGit/frameworks/Samphire/lib"/>
+      <libraryPathEntry kind="3" linkType="1" path="D:/osflashGit/frameworks/Ember2/lib/as3-signals-v0.9-BETA.swc" useDefaultLinkType="false"/>
+      <libraryPathEntry kind="3" linkType="1" path="D:/osflashGit/frameworks/Ember2/lib/flexunit-4.1.0-8-flex_4.1.0.16076.swc" useDefaultLinkType="false"/>
     </libraryPath>
     <sourceAttachmentPath/>
   </compiler>

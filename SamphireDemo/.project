@@ -25,5 +25,15 @@
 			<type>2</type>
 			<location>D:/osflashGit/frameworks/Samphire/src</location>
 		</link>
+		<link>
+			<name>[source path] SwiftSuspenders-src</name>
+			<type>2</type>
+			<location>D:/osflashGit/frameworks/SwiftSuspenders/src</location>
+		</link>
+		<link>
+			<name>[source path] robotlegs-framework-src</name>
+			<type>2</type>
+			<location>D:/osflashGit/frameworks/robotlegs-framework/src</location>
+		</link>
 	</linkedResources>
 </projectDescription>
