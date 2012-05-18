@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with TexturePacker http://texturepacker.com-->
+<!-- $TexturePacker:SmartUpdate:b299e862ad320901a22b6a9d3f389273$ -->
+<TextureAtlas imagePath="1.png">
+    <SubTexture name="Magic_button_blue" x="2" y="2" width="44" height="44"/>
+    <SubTexture name="Magic_button_green" x="50" y="0" width="50" height="50"/>
+    <SubTexture name="Magic_button_grey" x="0" y="50" width="50" height="50"/>
+    <SubTexture name="Magic_button_purple" x="50" y="50" width="50" height="50"/>
+    <SubTexture name="Magic_button_red" x="0" y="100" width="50" height="50"/>
+    <SubTexture name="Magic_button_yellow" x="50" y="100" width="50" height="50"/>
+</TextureAtlas>

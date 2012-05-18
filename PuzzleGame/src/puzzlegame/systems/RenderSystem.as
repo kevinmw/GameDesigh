@@ -3,16 +3,20 @@ package puzzlegame.systems
 	import net.richardlord.ash.core.NodeList;
 	import net.richardlord.ash.core.System;
 	
+	import puzzlegame.GameContainer;
+	import puzzlegame.components.Display;
+	import puzzlegame.components.Position;
 	import puzzlegame.nodes.RenderNode;
 	
+	import starling.display.DisplayObject;
 	import starling.display.DisplayObjectContainer;
 	
 	public class RenderSystem extends System
 	{
 		[Inject]
-		public var container : DisplayObjectContainer;
+		public var container : GameContainer;
 		
-		[Inject(nodeType="net.richardlord.asteroids.nodes.RenderNode")]
+		[Inject(nodeType="puzzlegame.nodes.RenderNode")]
 		public var nodes : NodeList;
 		
 		[PostConstruct]
@@ -38,7 +42,20 @@ package puzzlegame.systems
 		
 		override public function update(time:Number):void
 		{
+			var node : RenderNode;
+			var position : Position;
+			var display : Display;
+			var displayObject : DisplayObject;
 			
+			for ( node = nodes.head; node; node = node.next )
+			{
+				display = node.display;
+				displayObject = display.displayObject;
+				position = node.position;
+				
+				displayObject.x = position.position.x;
+				displayObject.y = position.position.y;
+			}			
 		}
 	}
 }
