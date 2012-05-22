@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testrun name="" >
+<testsuite  name="Default Test Suite" project="Hello-Starling">
+<testsuite name="starling_demos.jamesli:JamesliDemos" type="testsuiteclass"/>
+<testsuite name="starling_demos.jamesli:FlyLettersDemo" type="testcaseclass"/>
+</testsuite>
+<portNumber value="8765" />
+</testrun>
