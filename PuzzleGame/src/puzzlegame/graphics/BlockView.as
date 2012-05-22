@@ -1,34 +1,30 @@
 package puzzlegame.graphics
 {
 	
-	import flash.display.Bitmap;
-	
 	import puzzlegame.texture.BlockTexture;
 	
-	import starling.animation.Transitions;
-	import starling.animation.Tween;
-	import starling.core.Starling;
 	import starling.display.Image;
-	import starling.display.MovieClip;
 	import starling.display.Sprite;
-	import starling.events.Event;
-	import starling.textures.Texture;
-	import starling.textures.TextureAtlas;
 	
 	/**
 	 * 方块的显示
-	 * @author Administrator
+	 * @author Kevin Ni
 	 * 
 	 */
 	public class BlockView extends Sprite
 	{
-		private var type:int;
 		
 		public function BlockView(type:int)
 		{
-			this.type = type;
+			refreshView(type);
+		}
+		
+		public function refreshView(type:int):void
+		{
 			var image:Image = new Image(BlockTexture.getInstance().getTexture(type))
 			this.addChild(image);
+			image.pivotX = image.width>>1;
+			image.pivotY = image.height>>1;			
 		}
 		
 		/**
@@ -39,9 +35,17 @@ package puzzlegame.graphics
 		{
 			var frame:Image = new Image(BlockTexture.getInstance().getFrame());
 			this.addChild(frame);
-			var tween:Tween = new Tween(this, 5, Transitions.EASE_IN_OUT);
-			tween.animate("x", this.x + 10);
-			Starling.juggler.add(tween);
+			frame.pivotX = frame.width>>1;
+			frame.pivotY = frame.height>>1;
+//			var tweenObj:BlockView = this;
+//			var tween:Tween = new Tween(this, 2, Transitions.EASE_IN_OUT_ELASTIC);
+//			tween.scaleTo(1.05);
+//			tween.onComplete = function ():void{
+//				tween = new Tween(tweenObj, 2, Transitions.EASE_IN_OUT_ELASTIC);
+//				tween.scaleTo(1);
+//				Starling.juggler.add(tween);
+//			}
+//			Starling.juggler.add(tween);
 		}
 		
 //		private function onAdded(e:Event):void

@@ -2,7 +2,7 @@ package puzzlegame.systems
 {
 	/**
 	 * 
-	 * @author Administrator
+	 * @author Kevin Ni
 	 * 
 	 */	
 	public class SystemPriorities
@@ -12,6 +12,5 @@ package puzzlegame.systems
 		public static const move : int = 3;
 		public static const resolveCollisions : int = 4;
 		public static const render : int = 5;
-		
 	}
 }

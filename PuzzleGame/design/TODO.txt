@@ -1,0 +1,7 @@
+trace包装类logger
+	自己写
+	使用第三方 https://github.com/base42/LogMeister
+	用robotlegs的框架
+
+鼠标事件需要抽象，以支持后续touch扩展，比如支持虚拟多鼠标
+	

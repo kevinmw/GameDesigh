@@ -4,7 +4,7 @@ package puzzlegame.graphics
 	
 	/**
 	 * 方块消除的背景可视类
-	 * @author Administrator
+	 * @author Kevin Ni
 	 * 
 	 */	
 	public class FrameView extends Sprite

@@ -9,6 +9,7 @@ package puzzlegame
 	import org.swiftsuspenders.Injector;
 	
 	import puzzlegame.components.GameState;
+	import puzzlegame.input.MouseInput;
 	import puzzlegame.systems.GameManager;
 	import puzzlegame.systems.RenderSystem;
 	import puzzlegame.systems.SystemPriorities;
@@ -30,13 +31,13 @@ package puzzlegame
 		private function prepare( container : DisplayObject, stage : Stage) : void
 		{
 			injector = new Injector();
-			game = new SwiftSuspendersGame( injector );
+			game = new SwiftSuspendersGame(injector);
 			
-			injector.map( Game ).toValue( game );
-			injector.map( GameContainer ).toValue( container );
-			injector.map( GameState ).asSingleton();
-			injector.map( EntityCreator ).asSingleton();
-//			injector.map( KeyPoll ).toValue( new KeyPoll( container.stage ) );
+			injector.map(Game).toValue(game);
+			injector.map(GameContainer).toValue(container);
+			injector.map(GameState).asSingleton();
+			injector.map(EntityCreator).asSingleton();
+			injector.map(MouseInput).toValue(new MouseInput(container.stage));
 			
 			game.addSystem(new GameManager(), SystemPriorities.preUpdate);
 			game.addSystem(new RenderSystem(), SystemPriorities.render);

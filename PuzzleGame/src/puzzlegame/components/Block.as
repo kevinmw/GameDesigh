@@ -2,7 +2,7 @@ package puzzlegame.components
 {
 	/**
 	 * 游戏中的方块（宝石、砖块...）
-	 * @author Administrator
+	 * @author Kevin Ni
 	 * 
 	 */	
 	public class Block

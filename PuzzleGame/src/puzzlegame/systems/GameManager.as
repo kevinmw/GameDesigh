@@ -6,6 +6,11 @@ package puzzlegame.systems
 	import puzzlegame.components.GameState;
 	import puzzlegame.texture.BlockConst;
 	
+	/**
+	 * 游戏整体状态管理类
+	 * @author Kevin Ni
+	 * 
+	 */	
 	public class GameManager extends System
 	{
 		[Inject]

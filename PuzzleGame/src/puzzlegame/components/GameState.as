@@ -2,7 +2,7 @@ package puzzlegame.components
 {
 	/**
 	 * 
-	 * @author Administrator
+	 * @author Kevin Ni
 	 * 
 	 */	
 	public class GameState

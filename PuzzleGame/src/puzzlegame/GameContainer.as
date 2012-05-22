@@ -18,10 +18,10 @@ package puzzlegame
 			//初始block的纹理
 			BlockTexture.getInstance();
 			
-			this.addEventListener(Event.ADDED_TO_STAGE, onAdded);
+//			this.addEventListener(Event.ADDED_TO_STAGE, onAdded);
 		}
 		
-		private function onAdded(e:Event):void
+/*		private function onAdded(e:Event):void
 		{
 			stage.addEventListener(TouchEvent.TOUCH, onClick);			
 		}
@@ -39,6 +39,6 @@ package puzzlegame
 					((e.target as Image).parent as BlockView).addFrame();
 				}
 			}
-		}
+		}*/
 	}
 }
