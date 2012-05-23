@@ -13,18 +13,26 @@ package puzzlegame.graphics
 	 */
 	public class BlockView extends Sprite
 	{
+		//选中边框
+		private var frame:Image;
+		public var cols:int;
+		public var rows:int;
+		public var isTweening:Boolean;
 		
-		public function BlockView(type:int)
+		public function BlockView(type:int, cols:int, rows:int)
 		{
+			this.cols = cols;
+			this.rows = rows;
 			refreshView(type);
 		}
 		
 		public function refreshView(type:int):void
 		{
+			//TODO 需要先删除当前的Image
 			var image:Image = new Image(BlockTexture.getInstance().getTexture(type))
 			this.addChild(image);
 			image.pivotX = image.width>>1;
-			image.pivotY = image.height>>1;			
+			image.pivotY = image.height>>1;
 		}
 		
 		/**
@@ -33,10 +41,21 @@ package puzzlegame.graphics
 		 */		
 		public function addFrame():void
 		{
-			var frame:Image = new Image(BlockTexture.getInstance().getFrame());
+			if(frame)
+			{
+//				trace("has frame!");
+				return;
+			}
+			frame = new Image(BlockTexture.getInstance().getFrame());
 			this.addChild(frame);
 			frame.pivotX = frame.width>>1;
 			frame.pivotY = frame.height>>1;
+		}
+		
+		public function removeFrame():void
+		{
+			this.removeChild(frame, true);
+		}
 //			var tweenObj:BlockView = this;
 //			var tween:Tween = new Tween(this, 2, Transitions.EASE_IN_OUT_ELASTIC);
 //			tween.scaleTo(1.05);
@@ -46,7 +65,6 @@ package puzzlegame.graphics
 //				Starling.juggler.add(tween);
 //			}
 //			Starling.juggler.add(tween);
-		}
 		
 //		private function onAdded(e:Event):void
 //		{

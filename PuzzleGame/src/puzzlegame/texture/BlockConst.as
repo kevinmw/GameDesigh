@@ -10,5 +10,7 @@ package puzzlegame.texture
 		public static const YELLOW:int = 5;
 		
 		public static const SIDE_LENGTH:int = 50;
+		public static const TOP_OFFSET:int = 40;
+		public static const LEFT_OFFSET:int = 100;
 	}
 }

@@ -9,7 +9,7 @@ package puzzlegame.components
 	{
 		public var times:int = 0;
 		public var level:int = 0;
-		public var points:int = 0;
+		public var blocks:int = 0;
 		public var width:int = 0;
 		public var height:int = 0;
 		

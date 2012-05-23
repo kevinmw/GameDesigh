@@ -3,6 +3,7 @@ package puzzlegame.systems
 	import net.richardlord.ash.core.System;
 	
 	import puzzlegame.EntityCreator;
+	import puzzlegame.GameData;
 	import puzzlegame.components.GameState;
 	import puzzlegame.texture.BlockConst;
 	
@@ -15,15 +16,21 @@ package puzzlegame.systems
 	{
 		[Inject]
 		public var gameState:GameState;
+		
 		[Inject]
 		public var creator : EntityCreator;
 		
 		override public function update(time:Number):void
 		{
-			if(gameState.times>0 && gameState.points<9)
+			if(gameState.times>0)
 			{
-				gameState.points ++;
-				creator.createBlocks(100+gameState.points*BlockConst.SIDE_LENGTH, 100+gameState.points*BlockConst.SIDE_LENGTH, Math.floor(Math.random()*6));
+				for(var i:int=0;i<80;i++)
+				{
+					creator.createBlocks(gameState.blocks%10, Math.floor(gameState.blocks/10), Math.floor(Math.random()*6));
+					gameState.blocks ++;
+				}
+				gameState.times = 0;
+				trace(GameData.blockTypeArray2.dump());
 			}
 		}
 	}

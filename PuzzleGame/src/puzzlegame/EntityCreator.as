@@ -8,6 +8,7 @@ package puzzlegame
 	import puzzlegame.components.Display;
 	import puzzlegame.components.Position;
 	import puzzlegame.graphics.BlockView;
+	import puzzlegame.texture.BlockConst;
 
 	public class EntityCreator
 	{
@@ -23,15 +24,17 @@ package puzzlegame
 			game.removeEntity(entity);
 		}
 		
-		public function createBlocks(x:Number, y:Number, type:int):Entity
+		public function createBlocks(x:int, y:int, type:int):Entity
 		{
-			trace(type);
+			trace(type, x, y);
+			var view:BlockView = new BlockView(type, x, y);
 			var block:Entity = new Entity()
 				.add(new Block())
-				.add(new Position(x, y))
+				.add(new Position(BlockConst.LEFT_OFFSET+x*BlockConst.SIDE_LENGTH, BlockConst.TOP_OFFSET+y*BlockConst.SIDE_LENGTH))
 				.add(new BlockColor(type))
 //				.add(new Motion( ( Math.random() - 0.5 ) * 4 * ( 50 - radius ), ( Math.random() - 0.5 ) * 4 * ( 50 - radius ), Math.random() * 2 - 1, 0 ) )
-				.add(new Display(new BlockView(type)));
+				.add(new Display(view));
+			GameData.blockTypeArray2.set(x, y, view);
 			game.addEntity(block);
 			return block;			
 		}
