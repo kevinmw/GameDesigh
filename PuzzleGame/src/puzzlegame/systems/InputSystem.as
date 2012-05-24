@@ -50,18 +50,21 @@ package puzzlegame.systems
 					//				((e.target as Image).parent as BlockView).addFrame();
 					//				trace(touch.getMovement(e.target as Image));
 					var point:Point = touch.getLocation(view);
+					trace(point);
+					trace(touch.getMovement(view));
+					trace(touch.getPreviousLocation(view));
+					trace("--------------");
 					if(!view.isTweening)
 					{
 						var tween:Tween = new Tween(view, 0.5, Transitions.LINEAR);
 						tween.moveTo(view.x+point.x, view.y+point.y);
-						trace(point);
 						view.isTweening = true;
 						tween.onComplete = function ():void{
 							view.isTweening = false;
 						}
 					}
 					
-					Starling.juggler.add(tween);
+//					Starling.juggler.add(tween);
 				}				
 			}
 			

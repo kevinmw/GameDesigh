@@ -11,7 +11,6 @@ package puzzlegame.graphics
 	{
 		public function FrameView()
 		{
-			//TODO: implement function
 			super();
 		}
 	}

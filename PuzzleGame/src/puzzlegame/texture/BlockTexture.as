@@ -27,13 +27,13 @@ package puzzlegame.texture
 		public function BlockTexture()
 		{
 			var bitmap:Bitmap = new SpriteSheet();
-			var texture:Texture = Texture.fromBitmap(bitmap);
+			var texture:Texture = Texture.fromBitmap(bitmap, false);
 			var xml:XML = XML(new SpriteSheetXML()); 
 			var sTextureAtlas:TextureAtlas = new TextureAtlas(texture, xml); 
 			blockTextures = sTextureAtlas.getTextures("Magic_button_"); 
 			
 			bitmap = new Frame();
-			frameTexture = Texture.fromBitmap(bitmap);
+			frameTexture = Texture.fromBitmap(bitmap, false);
 		}
 		
 		public function getTexture(type:int):Texture

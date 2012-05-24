@@ -12,9 +12,12 @@ package puzzlegame
 	
 	import puzzlegame.components.GameState;
 	import puzzlegame.input.MouseInput;
+	import puzzlegame.systems.ConnectSystem;
 	import puzzlegame.systems.GameManager;
 	import puzzlegame.systems.InputSystem;
+	import puzzlegame.systems.MotionSystem;
 	import puzzlegame.systems.RenderSystem;
+	import puzzlegame.systems.RobotSystem;
 	import puzzlegame.systems.SystemPriorities;
 	
 	import starling.display.DisplayObject;
@@ -48,7 +51,10 @@ package puzzlegame
 			injector.map(MouseInput).toValue(new MouseInput(container.stage));
 			
 			game.addSystem(new GameManager(), SystemPriorities.preUpdate);
+			game.addSystem(new RobotSystem(), SystemPriorities.update);
 			game.addSystem(new InputSystem(), SystemPriorities.update);
+			game.addSystem(new MotionSystem(), SystemPriorities.move);
+			game.addSystem(new ConnectSystem(), SystemPriorities.preRender);
 			game.addSystem(new RenderSystem(), SystemPriorities.render);
 			
 			tickProvider = new FrameTickProvider( stage );
