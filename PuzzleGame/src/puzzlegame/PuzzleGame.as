@@ -15,7 +15,7 @@ package puzzlegame
 	import puzzlegame.systems.ConnectSystem;
 	import puzzlegame.systems.GameManager;
 	import puzzlegame.systems.InputSystem;
-	import puzzlegame.systems.MotionSystem;
+	import puzzlegame.systems.PhysicsSystem;
 	import puzzlegame.systems.RenderSystem;
 	import puzzlegame.systems.RobotSystem;
 	import puzzlegame.systems.SystemPriorities;
@@ -53,7 +53,7 @@ package puzzlegame
 			game.addSystem(new GameManager(), SystemPriorities.preUpdate);
 			game.addSystem(new RobotSystem(), SystemPriorities.update);
 			game.addSystem(new InputSystem(), SystemPriorities.update);
-			game.addSystem(new MotionSystem(), SystemPriorities.move);
+			game.addSystem(new PhysicsSystem(), SystemPriorities.move);
 			game.addSystem(new ConnectSystem(), SystemPriorities.preRender);
 			game.addSystem(new RenderSystem(), SystemPriorities.render);
 			
