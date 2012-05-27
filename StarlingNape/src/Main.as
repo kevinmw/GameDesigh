@@ -28,26 +28,28 @@ package
 		{
 			addChild(Image.fromBitmap(new back()));
 			
-			space = new Space(new Vec2(0, 3000));
+			space = new Space(new Vec2(0, 800));
 			
 			var floor:Body = new Body(BodyType.STATIC);
 			floor.shapes.add(new Polygon(Polygon.rect(0, stage.stageHeight, stage.stageWidth, 20)));
+			floor.shapes.add(new Polygon(Polygon.rect(0, 0, -10, stage.stageHeight)));
+			floor.shapes.add(new Polygon(Polygon.rect(stage.stageWidth, 0, 10, stage.stageHeight)));
 			floor.space = space;
 			
 			addEventListener(Event.ENTER_FRAME, loop);
-				addBall();
 		}
 		
 		private function loop(event:Event):void
 		{
 			space.step(1/60);
 			
-//			if(Math.random() < 0.03)
+			if(Math.random() < 0.03)
+				addBall();
 		}
 		
 		private function addBall():void
 		{
-			var ball:Body = new Body(BodyType.STATIC, new Vec2(Math.random()*700, 100));
+			var ball:Body = new Body(null, new Vec2(Math.random()*700, 100));
 			ball.shapes.add(new Circle(51.5, null, new Material(20)));
 			ball.space = space;
 			ball.graphic = new BasketBall();
