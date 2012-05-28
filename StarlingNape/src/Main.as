@@ -59,7 +59,7 @@ package
 		
 		private function updateGraphics(b:Body):void
 		{
-			trace(b.position.x, b.position.y, b.rotation);
+//			trace(b.position.x, b.position.y, b.rotation);
 			b.graphic.x = b.position.x;
 			b.graphic.y = b.position.y;
 			b.graphic.rotation = b.rotation;
