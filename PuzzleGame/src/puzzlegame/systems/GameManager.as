@@ -1,5 +1,7 @@
 package puzzlegame.systems
 {
+	import de.polygonal.ds.Array2;
+	
 	import net.richardlord.ash.core.System;
 	
 	import puzzlegame.EntityCreator;
@@ -30,7 +32,13 @@ package puzzlegame.systems
 					gameState.blocks ++;
 				}
 				gameState.times = 0;
-				trace(GameData.blockTypeArray2.dump());
+				GameData.blockTypeArray2.walk(
+					function (val:String, x:int, y:int):void 
+					{
+						trace(Std.string(x), Std.string(y), Std.string(val)); 
+					}
+				);
+				trace(GameData.blockTypeArray2.toString());
 			}
 		}
 	}

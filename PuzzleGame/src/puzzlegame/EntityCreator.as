@@ -26,7 +26,7 @@ package puzzlegame
 		
 		public function createBlocks(x:int, y:int, type:int):Entity
 		{
-			trace(type, x, y);
+//			trace(type, x, y);
 			var view:BlockView = new BlockView(type, x, y);
 			var block:Entity = new Entity()
 				.add(new Block())
