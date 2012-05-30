@@ -121,6 +121,9 @@ package
 				
 				var square:Polygon = new Polygon(Polygon.box(20, 20));
 				square.body = box;
+				//碰撞过滤
+//				square.filter.collisionGroup = 2;
+//				square.filter.collisionMask = ~2;
 				
 				box.graphic = b;
 				box.space = space;
