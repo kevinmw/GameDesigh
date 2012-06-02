@@ -26,7 +26,7 @@ import com.tomseysdavies.samphire.systems.editor.EditorSystem;
 
 import flash.utils.ByteArray;
 
-import org.swiftsuspenders.Injector;
+import org.swiftsuspenders.injection.Injector;
 
 public class StartupCommand
 	{

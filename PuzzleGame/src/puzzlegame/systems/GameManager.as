@@ -2,6 +2,7 @@ package puzzlegame.systems
 {
 	import de.polygonal.ds.Array2;
 	
+	import net.richardlord.ash.core.NodeList;
 	import net.richardlord.ash.core.System;
 	
 	import puzzlegame.EntityCreator;
@@ -22,9 +23,12 @@ package puzzlegame.systems
 		[Inject]
 		public var creator : EntityCreator;
 		
+		[Inject(nodeType="puzzlegame.nodes.RenderNode")]
+		public var nodes:NodeList;
+		
 		override public function update(time:Number):void
 		{
-			if(gameState.times>0)
+			if(gameState.times>0 && nodes.empty)
 			{
 				for(var i:int=0;i<80;i++)
 				{

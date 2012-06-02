@@ -64,7 +64,7 @@ package puzzlegame.systems
 						}
 					}
 					
-//					Starling.juggler.add(tween);
+					Starling.juggler.add(tween);
 				}				
 			}
 			
