@@ -29,6 +29,11 @@
 			<location>D:/osflashGit/frameworks/Ash/src</location>
 		</link>
 		<link>
+			<name>[source path] Hi-ReS-Stats-src</name>
+			<type>2</type>
+			<location>D:/osflashGit/debug/Hi-ReS-Stats/src</location>
+		</link>
+		<link>
 			<name>[source path] PuzzleGame-src</name>
 			<type>2</type>
 			<locationURI>DOCUMENTS/PuzzleGame/src</locationURI>

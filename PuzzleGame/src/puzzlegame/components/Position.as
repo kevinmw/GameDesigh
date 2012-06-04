@@ -4,11 +4,11 @@ package puzzlegame.components
 
 	public class Position
 	{
-		public var position:Point;
+		public var point:Point;
 		
 		public function Position(x:Number, y:Number)
 		{
-			position = new Point(x, y);
+			point = new Point(x, y);
 		}
 	}
 }

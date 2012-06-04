@@ -9,8 +9,9 @@ package puzzlegame.texture
 		public static const RED:int = 4;
 		public static const YELLOW:int = 5;
 		
+		//方块间距
 		public static const SIDE_LENGTH:int = 50;
-		public static const TOP_OFFSET:int = 40;
+		public static const TOP_OFFSET:int = 100;
 		public static const LEFT_OFFSET:int = 100;
 	}
 }

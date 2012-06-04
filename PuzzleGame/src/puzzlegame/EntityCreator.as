@@ -28,9 +28,10 @@ package puzzlegame
 		{
 //			trace(type, x, y);
 			var view:BlockView = new BlockView(type, x, y);
+			var randomHeight:uint = Math.floor(Math.random()*20);
 			var block:Entity = new Entity()
 				.add(new Block())
-				.add(new Position(BlockConst.LEFT_OFFSET+x*BlockConst.SIDE_LENGTH, BlockConst.TOP_OFFSET+y*BlockConst.SIDE_LENGTH))
+				.add(new Position(BlockConst.LEFT_OFFSET+x*BlockConst.SIDE_LENGTH, BlockConst.TOP_OFFSET-350+y*BlockConst.SIDE_LENGTH+randomHeight))
 				.add(new BlockColor(type))
 //				.add(new Motion( ( Math.random() - 0.5 ) * 4 * ( 50 - radius ), ( Math.random() - 0.5 ) * 4 * ( 50 - radius ), Math.random() * 2 - 1, 0 ) )
 				.add(new Display(view));

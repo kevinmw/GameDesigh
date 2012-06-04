@@ -7,8 +7,15 @@ package puzzlegame.systems
 	
 	import puzzlegame.EntityCreator;
 	import puzzlegame.GameData;
+	import puzzlegame.components.GameComponentConst;
 	import puzzlegame.components.GameState;
+	import puzzlegame.graphics.BlockView;
+	import puzzlegame.nodes.RenderNode;
 	import puzzlegame.texture.BlockConst;
+	
+	import starling.animation.Transitions;
+	import starling.animation.Tween;
+	import starling.core.Starling;
 	
 	/**
 	 * 游戏整体状态管理类
@@ -28,12 +35,13 @@ package puzzlegame.systems
 		
 		override public function update(time:Number):void
 		{
+			//游戏进行状态中，没有方块时，创建方块
 			if(gameState.times>0 && nodes.empty)
 			{
 				for(var i:int=0;i<80;i++)
 				{
 					creator.createBlocks(gameState.blocks%10, Math.floor(gameState.blocks/10), Math.floor(Math.random()*6));
-					gameState.blocks ++;
+					gameState.blocks++;
 				}
 				gameState.times = 0;
 				GameData.blockTypeArray2.walk(
@@ -43,6 +51,26 @@ package puzzlegame.systems
 					}
 				);
 				trace(GameData.blockTypeArray2.toString());
+				
+				gameState.state = GameComponentConst.BLOCKS_DROP;
+				
+				var block:RenderNode;
+				var blockView:BlockView;
+				block = nodes.head;
+				while (block != null)
+				{
+					blockView = block.display.displayObject;
+					var tween:Tween = new Tween(block.position.point, 1-blockView.rows*0.1, Transitions.LINEAR);
+					tween.animate("y", BlockConst.TOP_OFFSET+blockView.rows*BlockConst.SIDE_LENGTH);
+					if(blockView.rows == 6 && blockView.cols == 6)
+					{
+						tween.onComplete = function ():void{
+							gameState.state = GameComponentConst.BLOCKS_MOVEBLE;
+						}
+					}
+					block = block.next;
+					Starling.juggler.add(tween);
+				}
 			}
 		}
 	}

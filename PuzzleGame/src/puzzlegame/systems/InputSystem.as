@@ -4,6 +4,8 @@ package puzzlegame.systems
 	
 	import net.richardlord.ash.core.System;
 	
+	import puzzlegame.components.GameComponentConst;
+	import puzzlegame.components.GameState;
 	import puzzlegame.graphics.BlockView;
 	import puzzlegame.input.MouseInput;
 	
@@ -24,6 +26,9 @@ package puzzlegame.systems
 		[Inject]
 		public var mouseInput:MouseInput;
 		
+		[Inject]
+		public var gameState:GameState;
+		
 		public function InputSystem()
 		{
 			super();
@@ -34,6 +39,7 @@ package puzzlegame.systems
 //			return;
 			//鼠标输入
 			var touch:Touch = mouseInput.touch;
+			if(gameState.state != GameComponentConst.BLOCKS_MOVEBLE) return;
 			if(touch && touch.target is Image)
 			{
 //				if(touch.target is Image)

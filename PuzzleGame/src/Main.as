@@ -3,6 +3,8 @@ package
 	import flash.display.Sprite;
 	import flash.events.Event;
 	
+	import net.hires.debug.Stats;
+	
 	import puzzlegame.GameContainer;
 	import puzzlegame.PuzzleGame;
 	import puzzlegame.components.GameState;
@@ -10,11 +12,12 @@ package
 	import starling.core.Starling;
 	import starling.events.Event;
 	
-	[SWF(frameRate="60", width="760", height="600")]
+	[SWF(frameRate="60", width="760", height="600", backgroundColor="0x555555")]
 	public class Main extends Sprite
 	{
 		private var puzzle:PuzzleGame;
 		private var mStarling:Starling;
+		private var stats:Stats;
 		
 		public function Main()
 		{
@@ -31,6 +34,9 @@ package
 			mStarling.start();
 			mStarling.addEventListener(starling.events.Event.ROOT_CREATED, onCreate);
 			
+			stats = new Stats();
+			stats.alpha = 0.5;
+			this.addChild(stats);
 		}
 		
 		private function onCreate(e:starling.events.Event):void

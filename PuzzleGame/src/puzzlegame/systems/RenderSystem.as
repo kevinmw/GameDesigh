@@ -60,8 +60,8 @@ package puzzlegame.systems
 				displayObject = display.displayObject;
 				position = node.position;
 				
-				displayObject.x = position.position.x;
-				displayObject.y = position.position.y;
+				displayObject.x = position.point.x;
+				displayObject.y = position.point.y;
 //				trace(displayObject.x, displayObject.y, displayObject.scaleX, displayObject.scaleY);
 			}			
 		}
