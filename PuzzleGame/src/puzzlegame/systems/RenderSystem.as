@@ -44,6 +44,7 @@ package puzzlegame.systems
 		private function removeFromDisplay(node:RenderNode):void
 		{
 			container.removeChild(node.display.displayObject);
+			node.display.displayObject.dispose();
 		}
 		
 		override public function update(time:Number):void
@@ -60,8 +61,12 @@ package puzzlegame.systems
 				displayObject = display.displayObject;
 				position = node.position;
 				
-				displayObject.x = position.point.x;
-				displayObject.y = position.point.y;
+				//todo 判断并对现实对象位置修改需要优化，可能影响帧频
+				if(displayObject.y != position.point.y)
+				{
+					displayObject.x = position.point.x;
+					displayObject.y = position.point.y;
+				}
 //				trace(displayObject.x, displayObject.y, displayObject.scaleX, displayObject.scaleY);
 			}			
 		}

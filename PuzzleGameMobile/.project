@@ -43,5 +43,10 @@
 			<type>2</type>
 			<location>D:/osflashGit/starling/Starling-Framework/starling/src</location>
 		</link>
+		<link>
+			<name>[source path] starling_lighting_extension</name>
+			<type>2</type>
+			<location>D:/osflashGit/starling/starling_lighting_extension/starling_lighting_extension</location>
+		</link>
 	</linkedResources>
 </projectDescription>

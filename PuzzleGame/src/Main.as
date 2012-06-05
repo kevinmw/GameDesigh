@@ -17,7 +17,7 @@ package
 	{
 		private var puzzle:PuzzleGame;
 		private var mStarling:Starling;
-		private var stats:Stats;
+//		private var stats:Stats;
 		
 		public function Main()
 		{
@@ -34,9 +34,11 @@ package
 			mStarling.start();
 			mStarling.addEventListener(starling.events.Event.ROOT_CREATED, onCreate);
 			
-			stats = new Stats();
-			stats.alpha = 0.5;
-			this.addChild(stats);
+			Starling.current.showStats = true;
+			
+//			stats = new Stats();
+//			stats.alpha = 0.5;
+//			this.addChild(stats);
 		}
 		
 		private function onCreate(e:starling.events.Event):void

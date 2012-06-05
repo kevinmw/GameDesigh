@@ -1,6 +1,8 @@
 package puzzlegame.graphics
 {
 	
+	import flash.geom.Point;
+	
 	import puzzlegame.texture.BlockTexture;
 	
 	import starling.display.Image;
@@ -13,23 +15,28 @@ package puzzlegame.graphics
 	 */
 	public class BlockView extends Sprite
 	{
+		private var image:Image;
 		//选中边框
 		private var frame:Image;
 		public var cols:int;
 		public var rows:int;
 		public var isTweening:Boolean;
+		public var color:uint;
+		private var _position:Point;
 		
 		public function BlockView(type:int, cols:int, rows:int)
 		{
 			this.cols = cols;
 			this.rows = rows;
+			this.color = type;
+			this._position = new Point(cols, rows);
 			refreshView(type);
 		}
 		
 		public function refreshView(type:int):void
 		{
 			//TODO 需要先删除当前的Image
-			var image:Image = new Image(BlockTexture.getInstance().getTexture(type))
+			image = new Image(BlockTexture.getInstance().getTexture(type))
 			this.addChild(image);
 			image.pivotX = image.width>>1;
 			image.pivotY = image.height>>1;
@@ -55,6 +62,25 @@ package puzzlegame.graphics
 		public function removeFrame():void
 		{
 			this.removeChild(frame, true);
+			frame.dispose();
+		}
+		
+		public function get currPosition():Point
+		{
+			return _position;
+		}
+		
+		public function dump():String
+		{
+			return "[x:"+cols+",y:"+rows+",color:"+color+"]";
+		}
+		
+		override public function dispose():void
+		{
+			this._position = null;
+			this.image.dispose();
+			this.frame.dispose();
+			super.dispose();
 		}
 //			var tweenObj:BlockView = this;
 //			var tween:Tween = new Tween(this, 2, Transitions.EASE_IN_OUT_ELASTIC);

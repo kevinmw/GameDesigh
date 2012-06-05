@@ -34,10 +34,10 @@
     <sourceAttachmentPath/>
   </compiler>
   <applications>
+    <application path="Main.as"/>
     <application path="StarlingTest.as"/>
   </applications>
   <modules/>
   <buildCSSFiles/>
   <flashCatalyst validateFlashCatalystCompatibility="false"/>
 </actionScriptProperties>
-

@@ -6,6 +6,7 @@ package puzzlegame.systems
 	import net.richardlord.ash.core.System;
 	
 	import puzzlegame.EntityCreator;
+	import puzzlegame.GameContainer;
 	import puzzlegame.GameData;
 	import puzzlegame.components.GameComponentConst;
 	import puzzlegame.components.GameState;
@@ -20,10 +21,15 @@ package puzzlegame.systems
 	/**
 	 * 游戏整体状态管理类
 	 * @author Kevin Ni
+	 * 判断游戏的状态：是否结束，是否挂起
+	 * 添加新方块
 	 * 
 	 */	
 	public class GameManager extends System
 	{
+		[Inject]
+		public var container : GameContainer;
+		
 		[Inject]
 		public var gameState:GameState;
 		
@@ -40,17 +46,17 @@ package puzzlegame.systems
 			{
 				for(var i:int=0;i<80;i++)
 				{
-					creator.createBlocks(gameState.blocks%10, Math.floor(gameState.blocks/10), Math.floor(Math.random()*6));
+					createBlock(gameState.blocks % GameData.blockCols, Math.floor(gameState.blocks/GameData.blockCols));
 					gameState.blocks++;
 				}
 				gameState.times = 0;
-				GameData.blockTypeArray2.walk(
+/*				GameData.blockTypeArray2.walk(
 					function (val:String, x:int, y:int):void 
 					{
 						trace(Std.string(x), Std.string(y), Std.string(val)); 
 					}
 				);
-				trace(GameData.blockTypeArray2.toString());
+				trace(GameData.blockTypeArray2.toString());*/
 				
 				gameState.state = GameComponentConst.BLOCKS_DROP;
 				
@@ -71,7 +77,39 @@ package puzzlegame.systems
 					block = block.next;
 					Starling.juggler.add(tween);
 				}
+				
+				//光线层需要放在接受光线的最上方
+				container.addLigit();
 			}
+		}
+		
+		private function createBlock(_x:uint, _y:uint):void
+		{
+			var colorArray:Array = [0,1,2,3,4,5];
+			var b_color:uint;
+			
+			var array2:Array2 = GameData.blockTypeArray2;
+			
+			var tempColor:uint;
+			if(_y>1)
+			{
+				tempColor = array2.get(_x, _y-1).color;
+				if(tempColor == array2.get(_x, _y-2).color)
+				{
+					colorArray.splice(colorArray.indexOf(tempColor), 1);
+				}
+			}
+			if(_x>1)
+			{
+				tempColor = array2.get(_x-1, _y).color;
+				if(tempColor == array2.get(_x-2, _y).color)
+				{
+					colorArray.splice(colorArray.indexOf(tempColor), 1);
+				}
+			}
+			var sliceIndex:uint = Math.floor(Math.random()*colorArray.length);
+			b_color = colorArray.slice(sliceIndex, sliceIndex+1)[0];
+			creator.createBlocks(_x, _y, b_color);
 		}
 	}
 }

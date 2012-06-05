@@ -5,6 +5,7 @@
       <compilerSourcePathEntry kind="1" linkType="1" path="D:/osflashGit/frameworks/Ash/src"/>
       <compilerSourcePathEntry kind="1" linkType="1" path="D:/osflashGit/starling/Starling-Framework/starling/src"/>
       <compilerSourcePathEntry kind="1" linkType="1" path="D:/osflashGit/debug/Hi-ReS-Stats/src"/>
+      <compilerSourcePathEntry kind="1" linkType="1" path="D:/osflashGit/starling/starling_lighting_extension/starling_lighting_extension"/>
     </compilerSourcePath>
     <libraryPath defaultLinkType="0">
       <libraryPathEntry kind="4" path="">
