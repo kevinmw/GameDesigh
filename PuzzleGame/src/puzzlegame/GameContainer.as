@@ -15,16 +15,16 @@ package puzzlegame
 	import starling.events.Touch;
 	import starling.events.TouchEvent;
 	import starling.events.TouchPhase;
-	import starling.extensions.lighting.core.Light;
 	import starling.extensions.lighting.core.LightLayer;
 	import starling.extensions.lighting.geometry.QuadShadowGeometry;
+	import starling.extensions.lighting.lights.PointLight;
 	
 	public class GameContainer extends Sprite
 	{
 		private var lightLayer:LightLayer;
 		
-		private var mouseLight:Light;
-		private var lights:Vector.<Light>;
+		private var mouseLight:PointLight;
+		private var lights:Vector.<PointLight>;
 		
 		private var nativeStage:Stage;
 		private var nativeStageWidth:int = 1000;
@@ -34,7 +34,7 @@ package puzzlegame
 			//初始block的纹理
 			BlockTexture.getInstance();
 			
-//			this.addEventListener(Event.ADDED_TO_STAGE, onAdded);
+			this.addEventListener(Event.ADDED_TO_STAGE, onAdded);
 		}
 		
 		private function onAdded(e:Event):void
@@ -67,11 +67,11 @@ package puzzlegame
 		private function createLights():void
 		{
 			//create a white light that will follow the mouse position
-			mouseLight = new Light(0, 0, 400, 0xffeeee);
+			mouseLight = new PointLight(0, 0, 400, 0xffeeee);
 			//add it to the light layer
 			lightLayer.addLight(mouseLight);
 			
-			lights = new <Light>[];
+			lights = new <PointLight>[];
 			
 			//uncomment this to add an arbitrary number of random lights
 			//			var light:Light;
